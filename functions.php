@@ -2,6 +2,11 @@
 
 add_action( 'after_setup_theme', 'remove_child_theme_support');
 
+if (!function_exists('libraries_child_scripts_styles')) {
+  wp_register_style('libraries-child-global', get_template_directory_uri() . '/css/build/minified/libraries-child-global.css', array(), '20140321');
+  wp_enqueue_style('libraries-child-global');
+}
+
 function remove_child_theme_support() {
   remove_theme_support('custom-background');
 }
