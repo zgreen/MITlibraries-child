@@ -2,7 +2,7 @@
 Theme Name: MIT Libraries Child NEW
 Author: Lightning Trumpet & MIT Libraries
 Author URI: http://wordpress.org/
-Version: 1.1
+Version: 1.1.7
 
 Template: libraries
 
@@ -20,15 +20,24 @@ MIT Libraries theme built for the MIT Libraries child websites.
 	box-sizing: border-box;
 }
 
-.childTheme .title-page {
+/*.childTheme .title-page {
 	background: #333;
 	color: #fff;
+}*/
+
+body {
+	font-family: 'Open Sans', Helvetica, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans', Helvetica, sans-serif !important;	
 }
 
 .childTheme ul {
-	list-style-type: disc;
+	list-style-type: none;
 }
 
+.box1 h1 a:hover{text-decoration:none;}
 .childTheme ol {
 	list-style-type: decimal;
 }
@@ -63,20 +72,31 @@ MIT Libraries theme built for the MIT Libraries child websites.
 	width: 100%;
 }
 
-.childTheme .siteTitle.hasImage [class*="box"] {
-	float: left;
-	position: relative;
+.childTheme .siteTitle.hasImage .box1 {
+	margin-top: 0.75rem;
+	width: 50%;
 }
 
-.childTheme .siteTitle.hasImage .box1,
-.childTheme .siteTitle.hasImage .box3 {
+.childTheme .title-page.hasImage .box1 {
 	margin-top: 0.75rem;
-	width: 25%;
+	width: 50%;
 }
 
 .childTheme .title-page.hasImage .box2 {
-	margin: 0 1em;
+	margin-left: 1em;
 	width: 50%;
+}
+
+h1.child-page-title {
+  	font-size: 34px !important;
+  	font-size: 2.25rem !important;
+  	font-weight: 400 !important;
+}
+
+.child-page-title a {
+	font-size: 21px;
+	font-size: 1.5rem;
+	line-height: 1;
 }
 
 .siteTitle h1 {
@@ -145,8 +165,9 @@ MIT Libraries theme built for the MIT Libraries child websites.
 	margin: 0 auto;
 	position: relative;
 	vertical-align: middle;
-	width: 446px;
+	width: auto;
 	z-index: 2;
+	float: right;
 }
 
 /* ---- Child Page Nav ---- */
@@ -177,6 +198,22 @@ MIT Libraries theme built for the MIT Libraries child websites.
 	width: 0;
 }
 
+.mobile-display {
+	display: none;
+}
+
+.nav-second>li>a:hover {
+	color: #338bc5 !important;
+	text-decoration: underline;
+}
+
+@media only screen and (min-width : 768px) {
+    /* Make Navigation Toggle on Desktop Hover */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
 /* ---- Main Content Area ---- */
 
 .allContent {
@@ -203,13 +240,6 @@ MIT Libraries theme built for the MIT Libraries child websites.
 	width: 100%;
 }
 
-.mainContent.hasLeftNav {
-	border-left: 1px solid #eceaea;
-	float: left;
-	padding-left: 1em;
-	width: 61.47%;
-}
-
 .mainContent h2 {
 	margin-bottom: 10px;
 }
@@ -224,17 +254,23 @@ MIT Libraries theme built for the MIT Libraries child websites.
 	padding: 0 20px 20px 0;
 }
 
+.entry-content h1 {
+	line-height: 1;
+}
+
 .entry-content h2 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 24px;
 	font-size: 1.5rem;
-	line-height: 1.5;
+	line-height: 1;
 }
 
 .entry-content h3 {
 	font-size: 16px;
 	font-size: 1rem;
 	margin: 1em 0;
+	font-weight: 600;
+	line-height: 1;
 }
 
 .entry-content h2:first-of-type,
@@ -344,15 +380,15 @@ MIT Libraries theme built for the MIT Libraries child websites.
 .childTheme .widget ul li,
 .childTheme .widget span,
 .childTheme .widget p {
-	font-size: 14px;
-	line-height: 18px;
+	font-size: 16px;
+	line-height: 1.4;
 	margin-bottom: 5px;
 }
 
-.childTheme .entry-content ul {
+/*.childTheme .entry-content ul {
 	margin: 0;
 }
-
+*/
 footer #footerHeader,
 footer .footerHeader {
 	height: 92px;
@@ -400,7 +436,45 @@ footer .footerHeader {
 	color: white;
 }
 
+
+
+.entry-content .expandable:nth-of-type(odd) {
+background: #eceaea !important;
+}
+
+.sidebar .widget.give {
+	background-color:white;
+	border-bottom: none;
+}
+
+a.giveNow {
+	background: #f58632;
+	border-radius: 3px;
+	color: white;
+	display: block;
+	padding: 16px;
+	padding: 1rem;
+	width: 100%;
+	text-align: center;
+}
+
+a.giveNow:hover {
+	color:white;
+}
+
+
+
 /* ---- Responsive Styles ---- */
+@media screen and (max-width:720px) {
+	.mobile-display {
+		display: block !important;
+	}
+	
+	.navbar-default .navbar-nav>.dropdown>a .caret {
+		display: none;
+	}
+}
+
 
 @media screen and (max-width:480px) {
 
@@ -412,7 +486,7 @@ footer .footerHeader {
 	.childTheme .siteTitle.hasImage .box3 {
 		width: 100%;
 	}
-	
+
 	.childTheme .siteTitle.hasImage .box3 {
 		margin-top: -3em;
 	}
@@ -420,6 +494,10 @@ footer .footerHeader {
 	.childTheme .siteTitle h1 {
 		border-bottom: 1px solid #ccc;
 		margin-bottom: 0.25em;
+	}
+
+	.childTheme .title-page.hasImage .box1 {
+		width: 100%;
 	}
 
 	.headerImage {
@@ -436,7 +514,7 @@ footer .footerHeader {
 	.childTheme .siteTitle .locationInfo {
 		float: left;
 	}
-	
+
 	.childTheme .siteTitle .todayHours,
 	.childTheme .locationInfo span {
 		color: #444;
@@ -482,5 +560,7 @@ footer .footerHeader {
 		float: none;
 		width: 100%;
 	}
+	
+	
 
 }
